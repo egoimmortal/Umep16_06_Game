@@ -11,9 +11,9 @@ tags: Unity
     可以選擇Shadow的品質等
 
 # 圖形化場景
-## Scene View
+# Scene View
     做操作都在這邊操作
-### Shading Mode
+## Shading Mode
     物件身上的顯示
 - Shaded
 > 顯示Shade
@@ -21,12 +21,12 @@ tags: Unity
 > 網格，可以把構成幾何圖形的三角形顯示出來
 - Shaded WireFrame
 > 兩個同時顯示，如果人物走過去會掉落之類的可能就是有個洞
-### Miscellaneous
+## Miscellaneous
 - Shadow Cascades
 > 針對影子的最佳化技術
 - Render Paths		
 - Alpha Channel
-### 場景顯示
+## 場景顯示
 - Skybox
 > 天空盒子，包圍整個遊戲的外殼
 - Fog
@@ -39,9 +39,9 @@ tags: Unity
 > 影像後製(影像放到記憶體後做的處理)，景深，曝光
 - Particle Systems
 > 粒子特效
-### Gizmos
+## Gizmos
 - 跟顯示參考有關，例如攝影機的圖案顯示或是攝影機的參考線等等
-### 方向儀
+## 方向儀
 - Iso       正交投影，物件大小會一樣大，看不出深度，通常2D用
 - Persp     透視，物件會因為遠近有顯示上的差距，會有深度，通常3D用
 
@@ -69,8 +69,17 @@ tags: Unity
 ## Layer
     要在哪些Layer顯示
 
+# Window
+## Lighting/Settings
+    可以看到現在的Skybox的Component
 # GameObject
     所有的東西都是在空的物件(GameObject)上綁上Component
+- GameObject/Move To View
+> 移動選取的物件到現在的視角正中心
+- GameObject/Align With View
+> 調整好想要的視角後，點選攝影機，上面的 GameObject/Align With View 就可以將選取的物件移動到目前的視角
+- GameObject/Align View to Selected
+> 移動現在的視角到選取的物件的視角
 ## Quad
 > 單純的平面，由兩片三角形組合成的四邊形
 ## Ragdoll
@@ -97,45 +106,78 @@ tags: Unity
 ### Directional Light
     Realtime 使用
     只有方向性
-1. Color
+- Color
 > 光源做相乘或相加
-2. Mode
+- Mode
 > Realtime時使用<br />
 > Mixed，Realtime & Baked都會使用<br />
 > Baked時使用
-3. Intensity
+- Intensity
 > 燈的強弱
-4. Indirect Multiplier
+- Indirect Multiplier
 > 有間接光源的話會在Baked時乘上
-5. Shadow Type
+- Shadow Type
 > 產生影子的方式<br />
-> No Shadows<br />
-> Soft Shadows，有柔邊，耗效能<br />
-> Hard Shadows，邊緣較粗糙
+1. No Shadows<br />
+2. Soft Shadows，有柔邊，耗效能<br />
+3. Hard Shadows，邊緣較粗糙
 > > Realtime Shadows
-> > - Strength，影子的強弱
-> > - Resolution，選擇影子的品質
-> > - Bias，誤差調整
-> > - Normal Bias，誤差調整
-> > - Near Plane
-6. Cookie
+> > 1. Strength，影子的強弱
+> > 2. Resolution，選擇影子的品質
+> > 3. Bias，誤差調整
+> > 4. Normal Bias，誤差調整
+> > 5. Near Plane
+- Cookie
 > 貼圖
-7. Cookie Size
+- Cookie Size
 > 貼圖的Size
-8. Draw Halo
-9. Flare
-10. Render Mode
-11. Culling Mask
-### Point Light
-> Realtime 使用
-### Spotlight
-> Realtime 使用
-### Area Light
-> Baked Light map 使用
+- Draw Halo
+> 根據光源位置劃一個光環
+- Flare
+> 光暈
+- Render Mode
+1. Auto，通常使用Auto讓電腦自動做處理，假如有一百盞燈會自己去運算<br />
+2. Important<br />
+3. Not Important
+- Culling Mask
+> 選擇這個光源要照到哪些Layer的物件
+### PointLight
+    Realtime 使用，四面八方都會照到
+    照到Shadow Map效能消耗最高，因為上下左右前後都要產生Shadow Map，效能消耗至少高出六倍
+- Range
+> 範圍
+- Color
+- Mode
+- Intensity
+- Indirect Multiplier
+- Shadow Type
+- Cookie
+- Draw Halo
+- Flare
+- Render Mode
+- Culling Mask
+### SpotLight
+    Realtime 使用，越靠近燈越亮
+- Range
+> 燈光照的範圍
+- Spot Angle
+> 視角
+- Color
+- Mode
+- Intensity
+- Indirect Multiplier
+- Shadow Type
+- Cookie
+- Draw Halo
+- Flare
+- Render Mode
+- Culling Mask
+### AreaLight
+    Baked Light map 使用
 ### Reflection Probe
-> Realtime & Light map 使用
+    Realtime & Light map 使用
 ### Light Probe Group
-> Baked Light map 使用
+    Baked Light map 使用
 ## FX
 ## Audio
 ## Model
@@ -297,19 +339,62 @@ tags: Unity
 
 ## Skybox *天空盒子，包圍整個場景的外殼*
 ## Camera
----
-- GameObject/Move To View
-> 移動選取的物件到現在的視角正中心
-- GameObject/Align With View
-> 調整好想要的視角後，點選攝影機，上面的 GameObject/Align With View 就可以將選取的物件移動到目前的視角
-- GameObject/Align View to Selected
-> 移動現在的視角到選取的物件的視角
+    Clear畫面時，會把Depth Stencil buffer的深度做 normalized 成0~1之間
 - Clear Flags
-- Skybox
-> 顏色清除成Skybox的顏色
-- Solid Color
-> 把背景的顏色清除成Background的顏色
-
+> 上一個畫面的東西完全清除後才會繪製下一個畫面，根據選擇的選項來決定在沒有物件的地方繪製下一個畫面的顏色
+> 1. Skybox
+> > 強制Render一層Skybox來清除，最先畫，可以節省掉檢查需不需要繪製的時間
+> 2. Solid Color
+> > 清成選擇的顏色，速度最快
+> 3. Depth only
+> > 只清除深度
+> 4. Don't Clear
+> > 不清除上一個Camera的畫面，早期Unity用第二支Camera來繪製UI使用
+- Background
+> 選擇Solid Color使用的顏色，選擇Solid Color才會出現
+- Culling Mask
+- Projection
+1. Perspective
+> 透視投影，
+2. Orthographic
+> 正交投影，比較沒有空間感在裡面
+- Field of View *Change Perspective*
+> 調整視角大小，越大就會有廣角效果，旁邊會扭曲
+- Size *Change Orthographic*
+> 調整大小範圍
+- Clipping Planes
+> 1. Near
+> 2. Far
+> 大於Near小於Far的範圍才能渲染
+- Viewport Rect
+> Camera繪製後呈現的，XY是畫面上的XY，WH是視窗的寬高
+- Depth
+> 管理誰先畫誰後畫的順序
+- Rendering Path
+> 1. Use Graphics Settings
+> 2. Forward
+> > 通常使用
+> 3. Deferred
+> > 硬體較好的時候可以使用，可以打很多盞燈上去，優點是點光源的數量可以很多
+> 4. Legacy Vertex Lit
+> 5. Legacy Defferred(light prepass)
+- Target Texture
+> assign 一張 Render Texture，會把攝影機Render到Texture上，再將Texture貼到材質球上，然後將材質球貼到需要的地方，像是電視or小地圖之類
+- Occlusion Culling
+> 是否開啟運算空間切割的物件顯示判斷
+- Allow HDR
+> 是否開啟高動態對比&高曝光
+- Allow MSAA
+> 是否開啟反鋸齒
+- Allow Dynamic Resolution
+> 是否開啟允許Runtime時動態調整Scale，調整的過程中不會很傷效能
+- Target Display
+> 顯示在哪一個monitor上
+## Skybox
+    Skybox/6 Sided，美術提供六張圖
+    Skybox/Cubemap，將美術提供的六張圖組合成特定比例的一張圖，有特定格式，Shader查詢的會使用
+    Skybox/Panoramic，美術提供的經緯圖，類似360度環景圖拆成一張圖
+    Skybox/Procedural，程式設定的不用美術資源，可以自己使用參數調整
 # UI
     重要觀念:
         九宮格:
@@ -396,3 +481,9 @@ tags: Unity
     通常用正投影的攝影機去照，光源是平行光
     把範圍內物件每一個pixel到攝影機之間的距離(深度)記錄下來，就是Shadow的desk map
     會將攝影機看到的Render到一張圖上，用深度比對的方式來決定看到的點有沒有被遮到
+## 繪製
+    繪製畫面的時候會有兩個Buffer，Frame buffer決定顏色，Depth Stencil buffer決定深度
+- Frame buffer
+> 32個bit，存放顏色，RGBA各擁有8個bit
+- Depth Stencil buffer
+> 32個bit，Depth有24個bit，Stencil有8個bit
