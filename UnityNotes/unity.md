@@ -395,6 +395,121 @@ tags: Unity
     Skybox/Cubemap，將美術提供的六張圖組合成特定比例的一張圖，有特定格式，Shader查詢的會使用
     Skybox/Panoramic，美術提供的經緯圖，類似360度環景圖拆成一張圖
     Skybox/Procedural，程式設定的不用美術資源，可以自己使用參數調整
+
+# Collider & Rigidbody
+## Box Collider
+    物件上可以綁複數的Collider，常會用到
+- Edit Collider
+> 可以直接編輯大小，會影響Center
+- Is Trigger
+> 是否有碰撞判斷，只有檢查物件是否有相交的功能，可以拿來做事件的觸發器
+- Material
+> Physic Material
+> > 1. Dynamic Friction
+> > 動摩擦係數
+> > 2. Static Friction
+> > 靜摩擦係數
+> > 3. Bounciness
+> > 彈性
+> > 4. Friction Combine
+> > 摩擦力的計算
+> > 5. Bounce Combine
+> > 彈性的計算
+- Center
+- Size
+- Radius*Sphere Collider & Capsule*
+> 碰撞半徑(會影響大小)
+- Height*Capsule*
+> 影響高度
+- Direction*Capsule*
+> 決定頭的方向
+## Mesh Collider
+    美術做好後一定要有這個Component，才能做地板碰撞偵測
+    地形建出來後就會有這個Component
+## Rigibody
+    子物件會被父物件的碰撞所影響
+    算力的時候會用到
+- Mass
+> 質量，兩個物體碰撞時誰會推誰的依據
+- Drag
+> 減速的力道
+- Angular Drag
+> 轉向減速的力道
+- Use Gravity
+> 是否受到重力影響
+- Is Kinematic
+> 絕對值，是否受到力的影響與是否受到碰撞影響
+- Interpolate
+> 選擇碰撞計算，可以選擇內差與外差
+- Collision Detection
+> 和碰撞計算有關，可以選擇碰撞計算的頻率
+- Constraints
+> 限制
+> 1. Freeze Position
+> > 限制勾選位置的XYZ軸的移動
+> 2. Freeze Rotation
+> > 限制勾選旋轉的XYZ
+## Fixed Joint
+- Connected Body
+> 連結的對象，像是用一根棍子把兩者串聯在一起
+- Break Force
+> 斷開連結需要的力
+- Break Torque
+> 斷開連結需要的力矩
+- Enable Collision
+> 和連結的鋼體間是否有碰撞
+- Enable Preprocessing
+> 和穩定度有關
+- Mass Scale
+> 自己本身Rigibody的Scale
+- Connected Mass Scale
+> 被連接的Rigibody的Scale
+## Spring Joint
+    有彈性，沒有綁Connected Body的時候會被世界座標所影響
+- Connected Body
+- Anchor
+> 物理運算錨點
+- Auto Configure Connected
+- Connected Anchor
+> 連結的錨點
+- Spring
+> 彈性多緊，值越大越緊
+- Damper
+> 跟減速有關，降低往回拉的力道
+- Min Distance
+> 離Anchor的最小距離
+- Max Distance
+> 離Anchor的最大距離
+- Tolerance
+> 彈性在動的時候容許的誤差
+- Break Force
+- Break Torque
+- Enable Collision
+> 是否開啟碰撞
+- Enable Preprocessing
+- Mass Scale
+- Connected Mass Scale
+## Hinge Joint
+    類似樞紐，根據被綁定的物件作為轉向軸
+- ...
+- Motor
+> 1. Target Velocity
+> 2. Force
+> 3. Free Spin
+- Use Limits    
+- Limits
+> 屬性都是Anchor的屬性
+- ...
+## Character Joint
+    特殊的地方是可以做各種的Limit，頭髮也可以用Character Joint
+- ...
+- Twist Limit Spring
+- Low Twist Limit
+- High Twist Limit
+- Swing Limit Spring
+- Swing 1 Limit
+- Swing 2 Limit
+- ...
 # UI
     重要觀念:
         九宮格:
@@ -487,3 +602,5 @@ tags: Unity
 > 32個bit，存放顏色，RGBA各擁有8個bit
 - Depth Stencil buffer
 > 32個bit，Depth有24個bit，Stencil有8個bit
+## 學引擎的重點
+    要了解是記裡面的KeyWord，而不是每一個細節都記起來，不知道的就打開Reference來查
