@@ -540,6 +540,23 @@ tags: Unity
     基本上跟Terrain長得一樣
 ## Water
     水平面的反射(Reflect)通常是在水平線下有另外一個攝影機，將照到的圖映射到上面攝影機看到的圖
+## Video Player
+- Source
+- Video Clip
+- Play On Awake
+> Awake後播放
+- Wait For First Frame
+> 是否要等一個Frame後才播放
+- Loop
+> 是否循環播放
+- Playback Speed
+> 播放的速度
+- Render Mode
+> Render到哪上
+- Renderer
+- Material Property
+- Audio Output Mode
+- Track 0 [2 ch]
 # UI
     重要觀念:
         九宮格:
