@@ -293,6 +293,7 @@ tags: Unity
 3. Tiling
 4. Offest
 5. UV Set
+> 可以選擇不同UV來進行處理
 - Forward Rendering Options
 1. Specular Highlights
 > 是否要在攝影機中顯示高光反射
@@ -557,6 +558,47 @@ tags: Unity
 - Material Property
 - Audio Output Mode
 - Track 0 [2 ch]
+## Trail Renderer
+    常用於殘影特效
+- Cast Shadows
+- Receive Shadows
+> 是否接收影子
+- Dynamic Occludee
+> 是否動態遮擋
+- Motion Vectors
+- Materials
+> 可以選擇材質跟大小
+- Lightmap Parameters
+- Time
+> 殘影的時間
+- Min Vertex Distance
+> 區間內的距離
+- Autodestruct
+> 殘影消失後自否把這個物件刪除
+- Width
+> 寬度
+- Color
+> 可以選擇兩個顏色做漸層和透明度
+- Corner Vertices
+> 轉角的密度，轉角柔和的時候調整
+- End Cap Vertices
+> 結尾的角度調整
+- Alignment
+> 1. View
+> > 面對攝影機
+> 2. Local
+> > 面對不做改變
+- Texture Mode
+- Generate Lighting Data
+> 勾選的話拉出來的殘影會做Light計算
+- Sorting Layer
+> 排序Layer
+- Order in Layer
+> 指定繪製先後順序
+- Light Probes
+> 是否受到Light Probes影響
+- Reflection Probes
+> 是否受到Reflection Probes影響
 # UI
     重要觀念:
         九宮格:
