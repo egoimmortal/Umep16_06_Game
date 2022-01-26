@@ -510,6 +510,36 @@ tags: Unity
 - Swing 1 Limit
 - Swing 2 Limit
 - ...
+## Terrain
+    Textures通常不要用太多層，效能會不好，通常會輸出成Mesh後搭配Shader使用
+- Settings*Abort Texture*
+> 1. Brush Size
+> 2. Opacity
+> > 筆刷力道
+> 3. Target Strength
+> > 混色權重
+- Trees
+> 通常使用Speed/Tree，有LOD的調整
+- Wind Settings for Grass
+> 可以使用Shader控制搖擺
+> 1. Speed
+> > 搖擺的速度
+> 2. Size
+> > 搖擺的大小
+> 3. Bending
+> > 搖擺的程度
+- Resolution
+> 1. Terrain Width
+> > 建議一開始就設定好
+> 2. Terrain Length
+> > 建議一開始就設定好
+> 3. Terrain Height
+> > Terrain限制的高度
+> ...
+## Terrain Collider
+    基本上跟Terrain長得一樣
+## Water
+    水平面的反射(Reflect)通常是在水平線下有另外一個攝影機，將照到的圖映射到上面攝影機看到的圖
 # UI
     重要觀念:
         九宮格:
