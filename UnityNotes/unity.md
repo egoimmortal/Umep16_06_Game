@@ -599,6 +599,141 @@ tags: Unity
 > 是否受到Light Probes影響
 - Reflection Probes
 > 是否受到Reflection Probes影響
+## Particle System
+- Scene 上的面板 Particle Effect
+> 1. Playback Speed
+> > 播放速度
+> 2. Playback Time
+> > 播放時間
+> 3. Particles
+> > 粒子的數量
+- Particle System
+> 1. Duration
+> > 持續時間
+> 2. Looping
+> > 是否重複播放
+> 3. Start Delay
+> > Delay多久後開始播放
+> 4. Start Lifetime
+> > 粒子的存活時間
+> 5. Start Speed
+> > 粒子的速度
+> 6. Start Rotation
+> > 粒子開始的角度
+> 7. Randomize Rotation
+> > 粒子的隨機角度
+> 8. Start Color
+> > 粒子的顏色
+> 9. Gravity Modifier
+> > 粒子是否受重力影響，適合用來做噴泉，會被PhysicsManager的重力影響
+> 10. Simulation Space
+> > 粒子飄的位置，Loacl是跟隨Particle System，World是在世界座標上例如腳邊的煙塵
+> 11. Play On Awake
+> > 播放時機，一般場景特效都是一開始就播，攻擊特效則是呼叫的時候播放
+> 12. Max Oarticles
+> > 最大的粒子數，建議不要太多
+> 13. Stop Action
+> > 結束後Particle System的動作
+> ...
+- Emission
+> 1. Rate over Time
+> > 每一次噴多少粒子，如果是爆炸效果就是一開始就先噴一圈出來
+> 2. Rate over Distance
+> > 距離多遠的時候觸發
+> 3. Bursts
+> > 控制播放粒子的時間
+- Shape
+> - Shape
+> > 形狀
+> > 1. Sphere
+> > > 較常用
+> > 2. Hemisphere
+> > > 較常用
+> > 3. Cone
+> > > 較常用
+> > 4. Donut
+> > 5. Box
+> > > 可以做特效牆之類的
+> > 6. Mesh
+> > 7. Mesh Renderer
+> > > 火災之類的物件本身身上做噴發可以使用
+> > 8. Skinned Mesh Renderer
+> > > 放在人物皮膚上做特效，會跟著人物
+> > 9. Circle
+> > > 圓型噴發
+> > 10. Edge
+> > > 線的噴發
+> - Angle
+> > 上層角度
+> - Radius
+> > 下層半徑
+> - Radius Thickness
+> > 粒子沿著什麼角度噴發
+> - Arc
+> > 粒子在底度的什麼角度噴發，Mode是噴發方式，Spread是沿著固定的順序噴發
+> - Emit From
+> > Base->沿著底部噴發，Volume->整個容器內隨意噴發
+> - Align To Direction
+> > 面對發射方向
+> - Randomize Durection
+> - Spherize Direction
+> - Randomize Position
+> > 每個都長得差不多
+> - Type
+> > 從選擇的Mesh做噴發，有Triangle等可以做選擇
+- Velocity over Lifetime
+> 粒子出現至消失額外給予的速度變化
+- Limit Velocity over Lifetime
+> - Dampen
+> > Dampen跟阻力有關係
+> - Drag
+> > 力道
+- Inherit Velocity
+> 繼承速度
+> - Mode
+> > 1. Initial
+> > 2. Current
+> - Multiplier
+> > 將現在速度加給粒子
+- Color over Lifetime
+> 粒子的生命週期顏色
+- Size over Lifetime
+> 粒子的生命週期大小
+- Rotation over Lifetime
+> 粒子是否做旋轉
+- External Forces
+> 風力加成，Multiplier調整力道
+- Noise
+> 擾動粒子的圖跟參數
+- Collision
+> 粒子的碰撞
+- Sub Emitters
+> 粒子死亡或產生碰撞時觸發
+- Lights
+> 粒子帶燈光，有必要再用
+- Trails
+> 粒子是否要有殘影
+- Texture Sheet Animation
+> 貼圖動畫，動UV值做動畫，Sprites通常在2D使用
+> - Mode
+> - Tiles
+> - Animation
+> - Frame over Time
+> - Start Frame
+> - Cycles
+> - Flip U
+> - Flip V
+> - Enabled UV Channels
+- Renderer
+> 可以製作下雨的處理(Stretched Billboard)
+> - Sort Mode
+> > 做Sort的調整，調整繪製的順序
+> - Min Particle Size
+> > 畫面拉近時占螢幕最小的比例
+> - Max Particle Size
+> > 畫面拉近時占螢幕最大的比例
+- Default-Particle
+> 預設噴Quad，帶有透明度的Shader
 # UI
     重要觀念:
         九宮格:
