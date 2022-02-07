@@ -245,7 +245,7 @@ tags: Unity
 > - Box Projection
 > > 是否會在盒子中做修正，會影響效能
 ### Light Probe Group
-    Baked Light map 使用
+    Baked Light map 使用，有這個Component的物件會被Light Probe的光源變化內差決定顯示的顏色
 ## FX
 ## Audio
 ## Model
@@ -285,8 +285,13 @@ tags: Unity
     渲染模型的地方
 - Lighting
 1. Light Probes
+> - Off，不受到Light Probes的影響
 2. Reflection Probes
+> - Blend Probes，兩個區間權重的混色
+> - Blend Probes And Skybox，Blend Probes和Skybox的混色
+> - Simple，在區間中權重來決定
 3. Anchor Override
+> - 混色的錨點
 4. Cast Sahdows
 > 是否要產生影子和影子的計算
 5. Receive Shadows
