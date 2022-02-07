@@ -71,7 +71,68 @@ tags: Unity
 
 # Window
 ## Lighting/Settings
-    可以看到現在的Skybox的Component
+    場景上會擺很多盞燈就會影響到效能，用Lightmap算的話會比較漂亮
+### Scene
+- Environment
+> 1. Skybox Material 
+> > Skybox的material
+> 2. Sun Source
+> > 光源
+> 3. Environment Lighting
+> > - Source
+> > > 環境光
+> > - Intensity Multiplie
+> > > 強度
+> > - Ambient Mode
+> > > bak的方式
+> 4. Environment Reflections
+> > - Source
+> > - Resolution
+> > > 會影響到記憶體跟效能
+> > - Compression
+> > > 圖要不要壓縮
+> > - Intensity Multiplie
+> > > 強度
+> > - Bounces
+> > > 燈光反彈次數的計算，default為1
+- Realtime Lighting
+> - Realtime Global Illumination
+> > 全域光罩等移到Realtime時計算，會有效能上的差異
+- Mixed Lighting
+> - Baked Global Illumination
+> - Lighting Mode
+> > - Baked Indirect
+> > > 沒有Shadowmask，影子是動態的
+> > - Shadowmask
+> > > Edit/Project Settings/Quality -> Shadowmask Mode時選擇的有關，Distance Shadowmask會根據距離決定使用動態的影子或是靜態的影子，Shadow Distance影響影子的可視範圍
+> > - Subtractive
+> > > 兩種影子都有，缺點是兩個影子的顏色沒辦法合在一起，手機遊戲上用Shadowmask會比較耗效能所以使用這個方式
+- Other Settings
+> Auto Generate
+> > 勾選會自動把static的物件自動baking
+- Lightmapping Settings
+> - ...
+> - Lightmap Padding
+> > lightmap裡圖的距離有多少pixel
+> - Lightmap Size
+> > Lightmap的大小
+> - Compress Lightmaps
+> > 要不要壓縮Lightmap
+> - Ambient Occlusion
+> > 物件跟物件間的黑邊
+> > - Max Distance
+> > > 射線打到物體產生的陰影的距離
+> - Fianl Gather
+> > 會把lightmap算得更漂亮，但是會計算較久
+> - Directional Mode
+> > Non-Directional，一般的只會bak顏色進去，Directional會帶有normalmap的效果
+### Global Maps
+- Intensity
+> 跟燈光強弱和顏色有關
+- Directionality
+> 跟Lighting計算有關
+- Shadowmask
+> 跟影子有關
 # GameObject
     所有的東西都是在空的物件(GameObject)上綁上Component
 - GameObject/Move To View
@@ -176,6 +237,13 @@ tags: Unity
     Baked Light map 使用
 ### Reflection Probe
     Realtime & Light map 使用
+- Type
+> Bak, Custom, Realtime
+- Runtime settings
+> - Importance
+> > 重要度，基於效能上的考量
+> - Box Projection
+> > 是否會在盒子中做修正，會影響效能
 ### Light Probe Group
     Baked Light map 使用
 ## FX
