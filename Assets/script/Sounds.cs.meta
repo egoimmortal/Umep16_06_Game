@@ -1,0 +1,43 @@
+fileFormatVersion: 2
+guid: abc7654b2e0814c4f9dd38aec5925379
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _MainSound: {instanceID: 0}
+  - _MainMusic: {instanceID: 0}
+  - _FightMusic: {instanceID: 0}
+  - _FightWinMusic: {fileID: 8300000, guid: 97022d3e86e103540a529eb918603903, type: 3}
+  - _FightFailMusic: {instanceID: 0}
+  - _Run: {instanceID: 0}
+  - _MushroomRun: {instanceID: 0}
+  - _FireDragonRun: {instanceID: 0}
+  - _OpenBag: {instanceID: 0}
+  - _MushroomHit: {instanceID: 0}
+  - _DragonSampleHit: {instanceID: 0}
+  - _DragonFire: {instanceID: 0}
+  - _BossSampleHit: {instanceID: 0}
+  - _BossWaveHit: {instanceID: 0}
+  - _BossJumpHit: {instanceID: 0}
+  - _BossBuff: {instanceID: 0}
+  - _BossSummon: {instanceID: 0}
+  - _UnitychanSampleHit: {instanceID: 0}
+  - _UnitychanNoShadowFeet: {instanceID: 0}
+  - _UnitychanWindLeg: {instanceID: 0}
+  - _UnitychanDragonFist: {instanceID: 0}
+  - _UnitychanJump: {instanceID: 0}
+  - _AcquirechanSampleHit: {instanceID: 0}
+  - _AcquirechanFire: {instanceID: 0}
+  - _AcquirechanIce: {instanceID: 0}
+  - _AcquirechanHeal: {instanceID: 0}
+  - _Redwater: {instanceID: 0}
+  - _Bludewater: {instanceID: 0}
+  - _Revive: {instanceID: 0}
+  - _Levelup: {instanceID: 0}
+  - _Defense: {instanceID: 0}
+  - _Die: {fileID: 8300000, guid: 500a84e0ce87f664db1e656d4f3f0078, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
